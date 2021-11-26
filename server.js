@@ -2,11 +2,12 @@
 const express = require('express');
 const { Router } = require('express');
 const { options } = require('./Bdconfig/mysql');
+const { devoluciones } = require('./funciones/function');
 
 // inicializar
 const app = express();
 const router = Router();
-const Port = 8080;
+const conn = new devoluciones(options);
 
 // settings
 app.set('port', process.env.PORT || 3001);
@@ -25,12 +26,21 @@ const server = app.listen(app.get('port'), ()=>{
 
 // get inicia
 router.get('', (req, res)=>{
-    res.send('<h1>Api devoluciones</h1>');
+
+    conn.selectProductos().then((row)=>{
+        res.send(JSON.stringify(row));
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
+    
+
 })
 
 // buscar factura por id
 router.get('/factura/:id', (req, res)=>{
 
+        res.send('<h1>Funciona</h1>');
 })
 
 
