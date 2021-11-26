@@ -1,0 +1,17 @@
+{
+  "name": "backend-devoluciones",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "svalenzuela.ortiz@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.14",
+    "mysql": "^2.18.1"
+  }
+}
