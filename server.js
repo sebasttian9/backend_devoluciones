@@ -66,9 +66,9 @@ router.get('/detallePedido/:venta/:prod', (req, res)=>{
 const venta = req.params.venta;
 const prod = req.params.prod;
 // console.log('id-->'+rut);
-    if(!id){
+    if(!venta){
 
-        res.send({'error':'id es requerido'});
+        res.send({'error':'venta es requerido'});
 
     }else{
         conn.selectDetallePedidosMercadoLibre(venta,prod).then((row)=>{
