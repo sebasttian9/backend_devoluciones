@@ -7,6 +7,20 @@ class devoluciones {
     }
 
 
+    // select  Detalle de 
+
+    selectDetallePedidosMercadoLibre(num_venta, producto){
+
+        return this.knex.from("producteca.tbl_pedidos_detalle").select("*").where({num_compra_ml:`${num_venta}`, prod_id:`${producto}`});
+        // limit(10).offset(0);
+            // .then((row)=>{
+            //     return row;
+            // }).catch((err) => { console.log(err); throw err})
+            // .finally(()=>{
+            //     this.knex.destroy();
+            // });
+    }
+
     // Productos
 
     selectProductos(){

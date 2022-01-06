@@ -58,6 +58,27 @@ router.get('/motivosdevolucion', (req, res)=>{
    
 });
 
+
+// buscar detalle de pedido
+router.get('/detallePedido/:venta/:prod', (req, res)=>{
+
+    // res.send('<h1>Funciona</h1>');
+const venta = req.params.venta;
+const prod = req.params.prod;
+// console.log('id-->'+rut);
+    if(!id){
+
+        res.send({'error':'id es requerido'});
+
+    }else{
+        conn.selectDetallePedidosMercadoLibre(venta,prod).then((row)=>{
+
+            // console.log(row);
+            res.send(row);
+        });
+    }
+})
+
 // buscar factura por id
 router.get('/factura/:id/:rut', (req, res)=>{
 
