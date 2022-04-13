@@ -142,6 +142,43 @@ router.get('/producto/:id/:rut', (req, res)=>{
 
 
 
-//https://cl.lafetechocolat.com/mercadoPago.php?srt=18&pago=3&ottPs=MzM4Mjkz&&collection_id=18484464112&collection_status=approved&payment_id=18484464112&status=approved&external_reference=338293&payment_type=credit_card&merchant_order_id=3679245063&preference_id=606140117-2cb872de-a59f-47e2-b42d-bc2e9e278231&site_id=MLC&processing_mode=aggregator&merchant_account_id=null
+// Insert Cabecera devolucion
+router.post('/save', (req, res)=>{
+
+    // res.send('<h1>Funciona</h1>');
+    // console.log('id-->'+id);
+
+    const objeto = {
+        empresa : req.body.SelectEmpresa,
+        motivo: req.body.SelectMotivo,
+        transporte: req.body.SelectTransporte,
+        factura: req.body.txtFactura,
+        guia: req.body.txtGuia,
+        razonSocial: req.body.txtRazonSocial,
+        rut: req.body.txtRut
+   }
+
+    conn.save(objeto).then(resp=>{
+
+            res.json(resp);
+
+    }).catch(error =>{
+
+            res.json({error : 'Error al guardar producto'+error});
+    });    
+    // if(!id){
+
+    //     res.send({'error':'id es requerido'});
+
+    // }else{
+    //     conn.selectProdEnFactura(id,rut).then((row)=>{
+
+    //         res.send(row);
+    //     });
+    // }
+
+})
+
+
 
 app.use('/api/devoluciones', router);

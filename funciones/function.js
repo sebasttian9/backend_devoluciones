@@ -72,6 +72,20 @@ class devoluciones {
     } 
 
 
+        // INSERT CABECERA 
+    insertCabecera(objeto){
+
+            return this.knex("dev_tbl_folio").insert({
+                                        empresa_id: objeto.empresa, 
+                                        Motivo_devolucion: objeto.motivo,  
+                                        transporte: objeto.transporte,
+                                        Factura_boleta: objeto.factura,
+                                        Guia_despacho_factura: objeto.guia,
+                                        razon_social: objeto.razonSocial,
+                                        rut_cliente	: objeto.rut});    
+    } 
+
+
     selectProdEnFactura(codigo,rut){
 
         
