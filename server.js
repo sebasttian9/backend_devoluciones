@@ -155,7 +155,8 @@ router.post('/save', (req, res)=>{
         factura: req.body.txtFactura,
         guia: req.body.txtGuia,
         razonSocial: req.body.txtRazonSocial,
-        rut: req.body.txtRut
+        rut: req.body.txtRut,
+        fecha_ingreso: req.body.txtFecha
    }
 
     conn.insertCabecera(objeto).then(resp=>{

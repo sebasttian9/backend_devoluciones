@@ -82,7 +82,9 @@ class devoluciones {
                                         Factura_boleta: objeto.factura,
                                         Guia_despacho_factura: objeto.guia,
                                         razon_social: objeto.razonSocial,
-                                        rut_cliente	: objeto.rut});    
+                                        rut_cliente	: objeto.rut,
+                                        Fecha_recepcion: objeto.fecha_ingreso,
+                                        id_num_folio: 999});    
     } 
 
 
