@@ -158,7 +158,7 @@ router.post('/save', (req, res)=>{
         rut: req.body.txtRut
    }
 
-    conn.save(objeto).then(resp=>{
+    conn.insertCabecera(objeto).then(resp=>{
 
             res.json(resp);
 
