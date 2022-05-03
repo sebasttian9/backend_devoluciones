@@ -84,6 +84,7 @@ class devoluciones {
                                         razon_social: objeto.razonSocial,
                                         rut_cliente	: objeto.rut,
                                         Fecha_recepcion: objeto.fecha_ingreso,
+                                        solicitud_cliente:objeto.solicitud,
                                         id_num_folio: 999});    
     } 
 
