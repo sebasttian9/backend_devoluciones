@@ -93,7 +93,7 @@ class devoluciones {
     insertDetalle(objeto){
 
                 // return this.knex("dev_tbl_folio").insert(objeto);    
-                const toString = this.knex("dev_tbl_folio").insert(objeto);  
+                const toString = this.knex("dev_tbl_detalle_devolucion").insert(objeto);  
                 return toString;  
 
     } 
