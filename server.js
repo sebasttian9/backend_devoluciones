@@ -209,8 +209,8 @@ router.post('/saveDetalle', (req, res)=>{
     const arrayDetalle = req.body;
     console.log(arrayDetalle);
 
-    // res.send(arrayDetalle);
-    // return;
+    res.send(arrayDetalle);
+    return;
 
     conn.insertDetalle(arrayDetalle).then(resp=>{
 
