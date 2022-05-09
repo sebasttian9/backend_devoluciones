@@ -25,7 +25,7 @@ var myLogger = function (req, res, next) {
 //  fin ejemplo
 
 // configurar cors
-const whitelist = ["http://localhost:3000"]
+const whitelist = ["http://localhost:3000","chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html"]
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || whitelist.indexOf(origin) !== -1) {
