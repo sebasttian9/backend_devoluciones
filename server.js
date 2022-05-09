@@ -206,7 +206,7 @@ router.post('/saveDetalle', (req, res)=>{
     // res.send('<h1>Funciona</h1>');
     // console.log('id-->'+id);
 
-    const arrayDetalle = req.body.inserts;
+    const arrayDetalle = req.body;
     console.log(arrayDetalle);
 
     res.send(arrayDetalle);
