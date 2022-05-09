@@ -198,4 +198,36 @@ router.post('/save', (req, res)=>{
 
 
 
+
+// Insert Cabecera devolucion
+router.post('/saveDetalle', (req, res)=>{
+
+    // res.send('<h1>Funciona</h1>');
+    // console.log('id-->'+id);
+
+    const arrayDetalle = req.body.inserts;
+    console.log(arrayDetalle);
+
+    conn.insertDetalle(arrayDetalle).then(resp=>{
+
+            res.json(resp);
+
+    }).catch(error =>{
+
+            res.json({error : 'Error al guardar producto'+error});
+    });    
+    // if(!id){
+
+    //     res.send({'error':'id es requerido'});
+
+    // }else{
+    //     conn.selectProdEnFactura(id,rut).then((row)=>{
+
+    //         res.send(row);
+    //     });
+    // }
+
+})
+
+
 app.use('/api/devoluciones', router);

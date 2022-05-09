@@ -89,6 +89,13 @@ class devoluciones {
     } 
 
 
+            // INSERT CABECERA 
+    insertDetalle(objeto){
+
+                return this.knex("dev_tbl_folio").insert(objeto);    
+    } 
+
+
     selectProdEnFactura(codigo,rut){
 
         
