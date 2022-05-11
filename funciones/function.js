@@ -63,6 +63,20 @@ class devoluciones {
     } 
 
 
+    // folios por cliente
+    selectFolioCliente(id){
+
+            return this.knex.from("dev_tbl_folio").select("id_folio, id_num_folio, Factura_boleta, Motivo_devolucion, estado_folio, Fecha_recepcion, rut_cliente, empresa_id").where('rut_cliente',id);
+    
+    } 
+
+    // detalle de folios
+    selectDetalleFolio(id_folio){
+
+        return this.knex.from("dev_tbl_detalle_devolucion").select("*").where('id_folio',id_folio);
+
+    }     
+
 
     // FACTURAS 
     selectInfoFactura(factura, rut_cliente){
@@ -85,6 +99,7 @@ class devoluciones {
                                         rut_cliente	: objeto.rut,
                                         Fecha_recepcion: objeto.fecha_ingreso,
                                         solicitud_cliente:objeto.solicitud,
+                                        resumen_motivo_dev: objeto.observacion,
                                         id_num_folio: 999});    
     } 
 

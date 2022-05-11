@@ -95,6 +95,46 @@ const prod = req.params.prod;
     }
 })
 
+
+// buscar folio por rut del cliente
+router.get('/foliosCliente/:rut', (req, res)=>{
+
+    // res.send('<h1>Funciona</h1>');
+    const rut = req.params.rut;
+    // console.log('id-->'+rut);
+    if(!rut){
+
+        res.send({'error':'venta es requerido'});
+
+    }else{
+        conn.selectFolioCliente(rut).then((row)=>{
+
+            // console.log(row);
+            res.send(row);
+        });
+    }
+})
+
+
+// buscar detalle folio
+router.get('/detalleFolio/:id', (req, res)=>{
+
+    // res.send('<h1>Funciona</h1>');
+    const id = req.params.id;
+    // console.log('id-->'+rut);
+    if(!id){
+
+        res.send({'error':'id es requerido'});
+
+    }else{
+        conn.selectDetalleFolio(id).then((row)=>{
+
+            // console.log(row);
+            res.send(row);
+        });
+    }
+})
+
 // buscar factura por id
 router.get('/factura/:id/:rut', (req, res)=>{
 
@@ -173,7 +213,9 @@ router.post('/save', (req, res)=>{
         razonSocial: req.body.txtRazonSocial,
         rut: req.body.txtRut,
         fecha_ingreso: req.body.txtFecha,
-        solicitud: req.body.SelectSolicitud
+        solicitud: req.body.SelectSolicitud,
+        observacion: req.body.txtObservacion
+
    }
 
     conn.insertCabecera(objeto).then(resp=>{
