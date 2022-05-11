@@ -66,7 +66,7 @@ class devoluciones {
     // folios por cliente
     selectFolioCliente(id){
 
-            return this.knex.from("dev_tbl_folio").select("id_folio, id_num_folio, Factura_boleta, Motivo_devolucion, estado_folio, Fecha_recepcion, rut_cliente, empresa_id").where('rut_cliente',id);
+            return this.knex.from("dev_tbl_folio").select("id_folio", "id_num_folio", "Factura_boleta", "Motivo_devolucion", "estado_folio", "Fecha_recepcion", "rut_cliente", "empresa_id").where('rut_cliente',id);
     
     } 
 
