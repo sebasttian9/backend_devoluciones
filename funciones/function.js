@@ -104,6 +104,13 @@ class devoluciones {
                                         id_num_folio: 999});    
     } 
 
+            // INSERT CABECERA 
+    actualizarFolioWeb(id_folio, folio_web){
+
+                const toString = this.knex("dev_tbl_folio").update({id_numero_seguimiento: `${folio_web}`}).where('id_folio', id_folio);    
+                return toString; 
+    } 
+
 
             // INSERT CABECERA 
     insertDetalle(objeto){

@@ -240,6 +240,27 @@ router.post('/save', (req, res)=>{
 })
 
 
+// Insert Cabecera devolucion
+router.post('/updateSegFolio', (req, res)=>{
+
+    // res.send('<h1>Funciona</h1>');
+    // console.log('id-->'+id);
+
+
+        const seguimiento =  req.body.seguimiento;
+        const id_folio =  req.body.folio;
+
+
+    conn.actualizarFolioWeb(id_folio,seguimiento).then(resp=>{
+
+            res.json(resp);
+
+    }).catch(error =>{
+
+            res.json({error : 'Error al actualizar folio'+error});
+    });
+
+})
 
 
 // Insert Cabecera devolucion
