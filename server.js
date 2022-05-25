@@ -262,6 +262,28 @@ router.post('/updateSegFolio', (req, res)=>{
 
 })
 
+// Insert Cabecera devolucion
+router.post('/updateNotaPedido', (req, res)=>{
+
+    // res.send('<h1>Funciona</h1>');
+    // console.log('id-->'+id);
+
+
+        const nota_pedido =  req.body.nota_pedido;
+        const fecha_factura =  req.body.fecha_factura;
+        const id_folio =  req.body.folio;
+
+
+    conn.actualizarFechaNota(nota_pedido,fecha_factura,id_folio).then(resp=>{
+
+            res.json(resp);
+
+    }).catch(error =>{
+
+            res.json({error : 'Error al actualizar folio'+error});
+    });
+
+})
 
 // Insert Cabecera devolucion
 router.post('/saveDetalle', (req, res)=>{

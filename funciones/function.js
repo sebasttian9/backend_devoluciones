@@ -111,6 +111,11 @@ class devoluciones {
                 return toString; 
     } 
 
+    actualizarFechaNota(nota_pedido,fecha_factura,id_folio){
+        const toString = this.knex("dev_tbl_folio").update({fecha_factura: `${fecha_factura}`,nota_pedido:`${nota_pedido}` }).where('id_folio', id_folio);    
+        return toString; 
+    }
+
 
             // INSERT CABECERA 
     insertDetalle(objeto){
