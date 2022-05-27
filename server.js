@@ -272,9 +272,10 @@ router.post('/updateNotaPedido', (req, res)=>{
         const nota_pedido =  req.body.nota_pedido;
         const fecha_factura =  req.body.fecha_factura;
         const id_folio =  req.body.folio;
+        const factura =  req.body.factura;
 
 
-    conn.actualizarFechaNota(nota_pedido,fecha_factura,id_folio).then(resp=>{
+    conn.actualizarFechaNota(nota_pedido,fecha_factura,id_folio, factura).then(resp=>{
 
             res.json(resp);
 

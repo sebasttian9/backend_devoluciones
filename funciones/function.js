@@ -107,12 +107,12 @@ class devoluciones {
             // INSERT CABECERA 
     actualizarFolioWeb(id_folio, folio_web){
 
-                const toString = this.knex("dev_tbl_folio").update({id_numero_seguimiento: `${folio_web}`}).where('id_folio', id_folio);    
+                const toString = this.knex("dev_tbl_folio").update({id_numero_seguimiento: `${folio_web}`, proceso_wms : 0}).where('id_folio', id_folio);    
                 return toString; 
     } 
 
-    actualizarFechaNota(nota_pedido,fecha_factura,id_folio){
-        const toString = this.knex("dev_tbl_folio").update({fecha_factura: `${fecha_factura}`,nota_pedido:`${nota_pedido}` }).where('id_folio', id_folio);    
+    actualizarFechaNota(nota_pedido,fecha_factura,id_folio, factura){
+        const toString = this.knex("dev_tbl_folio").update({fecha_factura: `${fecha_factura}`,nota_pedido:`${nota_pedido}`, Factura_boleta:`${factura}`  }).where('id_folio', id_folio);    
         return toString; 
     }
 
