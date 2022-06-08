@@ -94,11 +94,9 @@ class devoluciones {
             case 2:
                 const toString = this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
                 return toString;
-                break;
             case 1:
                 const toString2 = this.knex.from("automarc_automarco.tbl_clientes").select("*").where('cli_rut',rut);
                 return toString2;
-                break;
         }
         
     }
