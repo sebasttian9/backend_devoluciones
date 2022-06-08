@@ -301,11 +301,11 @@ router.post('/autenticarCliente', (req, res)=>{
 
         conn.autentificarClienteGabtec(rut,empresa).then(resp=>{
 
-            if(resp.length>0){
+            // if(resp.length>0){
                 res.json(resp);
-            }else{
-                res.json({'mensaje':'No existe cliente'});
-            }
+            // }else{
+            //     res.json({'mensaje':'No existe cliente'});
+            // }
 
         }).catch(error =>{
 
