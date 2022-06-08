@@ -297,15 +297,31 @@ router.post('/autenticarCliente', (req, res)=>{
         const rut =  req.body.rut_cliente;
         const empresa =  req.body.empresa;
 
+    if(empresa==2){
 
-    conn.autentificarCliente(rut,empresa).then(resp=>{
+        conn.autentificarClienteGabtec(rut,empresa).then(resp=>{
 
             res.json(resp);
 
-    }).catch(error =>{
+        }).catch(error =>{
 
-            res.json({error : 'Error al actualizar folio'+error});
-    });
+                res.json({error : 'Error al autenticar cliente'+error});
+        });
+
+    }else if(empresa==1){
+
+        conn.autentificarClienteAutomarco(rut,empresa).then(resp=>{
+
+            res.json(resp);
+
+        }).catch(error =>{
+
+                res.json({error : 'Error al autenticar cliente'+error});
+        });
+
+    }
+
+
 
 })
 

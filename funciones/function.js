@@ -79,25 +79,34 @@ class devoluciones {
     }     
 
     // Seleccionar informacion del cliente
-    autentificarCliente(rut,empresa){
+    autentificarClienteGabtec(rut,empresa){
 
         // if(empresa==2){
-        //     return this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
+            console.log(empresa);
+            return this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
 
         // }elseif(empresa==1){
 
         //     return this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
         // }
-        console.log(empresa);
+        
 
-        switch (empresa) {
-            case 2:
-                const toString = this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
-                return toString;
-            case 1:
-                const toString2 = this.knex.from("automarc_automarco.tbl_clientes").select("*").where('cli_rut',rut);
-                return toString2;
-        }
+        // switch (empresa) {
+        //     case 2:
+        //         const toString = this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
+        //         return toString;
+        //     case 1:
+        //         const toString2 = this.knex.from("automarc_automarco.tbl_clientes").select("*").where('cli_rut',rut);
+        //         return toString2;
+        // }
+        
+    }
+
+    autentificarClienteAutomarco(rut,empresa){
+
+        // if(empresa==2){
+            console.log(empresa);
+            return this.knex.from("automarc_automarco.tbl_clientes").select("*").where('cli_rut',rut);
         
     }
 
