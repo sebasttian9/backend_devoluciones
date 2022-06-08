@@ -286,6 +286,29 @@ router.post('/updateNotaPedido', (req, res)=>{
 
 })
 
+
+// Insert Cabecera devolucion
+router.post('/autenticarCliente', (req, res)=>{
+
+    // res.send('<h1>Funciona</h1>');
+    // console.log('id-->'+id);
+
+
+        const rut =  req.body.rut_cliente;
+        const empresa =  req.body.empresa;
+
+
+    conn.autentificarCliente(rut,empresa).then(resp=>{
+
+            res.json(resp);
+
+    }).catch(error =>{
+
+            res.json({error : 'Error al actualizar folio'+error});
+    });
+
+})
+
 // Insert Cabecera devolucion
 router.post('/saveDetalle', (req, res)=>{
 

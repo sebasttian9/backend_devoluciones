@@ -78,6 +78,27 @@ class devoluciones {
 
     }     
 
+    // Seleccionar informacion del cliente
+    autentificarCliente(rut,empresa){
+
+        // if(empresa==2){
+        //     return this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
+
+        // }elseif(empresa==1){
+
+        //     return this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
+        // }
+
+        switch (empresa) {
+            case 2:
+                return this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
+                break;
+            case 1:
+                return this.knex.from("automarc_automarco.tbl_clientes").select("*").where('cli_rut',rut);
+                break;
+        }
+        
+    }
 
     // FACTURAS 
     selectInfoFactura(factura, rut_cliente){
