@@ -88,13 +88,16 @@ class devoluciones {
 
         //     return this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
         // }
+        console.log(empresa);
 
         switch (empresa) {
             case 2:
-                return this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
+                const toString = this.knex.from("tbl_clientes").select("*").where('cli_rut',rut);
+                return toString;
                 break;
             case 1:
-                return this.knex.from("automarc_automarco.tbl_clientes").select("*").where('cli_rut',rut);
+                const toString2 = this.knex.from("automarc_automarco.tbl_clientes").select("*").where('cli_rut',rut);
+                return toString2;
                 break;
         }
         
