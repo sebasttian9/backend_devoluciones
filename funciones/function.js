@@ -110,6 +110,22 @@ class devoluciones {
         
     }
 
+    autentificarClienteAutotec(rut,empresa){
+
+        // if(empresa==2){
+            console.log(empresa);
+            return this.knex.from("autotec_ecom.tbl_clientes").select("*").where('cli_rut',rut);
+        
+    }
+
+    autentificarClienteHD(rut,empresa){
+
+        // if(empresa==2){
+            console.log(empresa);
+            return this.knex.from("autohd_automarcohd.tbl_clientes").select("*").where('cli_rut',rut);
+        
+    }
+
     // FACTURAS 
     selectInfoFactura(factura, rut_cliente){
 

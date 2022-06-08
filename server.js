@@ -301,7 +301,11 @@ router.post('/autenticarCliente', (req, res)=>{
 
         conn.autentificarClienteGabtec(rut,empresa).then(resp=>{
 
-            res.json(resp);
+            if(resp.length>0){
+                res.json(resp);
+            }else{
+                res.json({'mensaje':'No existe cliente'});
+            }
 
         }).catch(error =>{
 
@@ -311,6 +315,28 @@ router.post('/autenticarCliente', (req, res)=>{
     }else if(empresa==1){
 
         conn.autentificarClienteAutomarco(rut,empresa).then(resp=>{
+
+            res.json(resp);
+
+        }).catch(error =>{
+
+                res.json({error : 'Error al autenticar cliente'+error});
+        });
+
+    }else if(empresa==3){
+
+        conn.autentificarClienteAutotec(rut,empresa).then(resp=>{
+
+            res.json(resp);
+
+        }).catch(error =>{
+
+                res.json({error : 'Error al autenticar cliente'+error});
+        });
+
+    }else if(empresa==4){
+
+        conn.autentificarClienteHD(rut,empresa).then(resp=>{
 
             res.json(resp);
 
