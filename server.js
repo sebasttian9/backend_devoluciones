@@ -115,6 +115,22 @@ router.get('/foliosCliente/:rut', (req, res)=>{
     }
 })
 
+// obtener suma de items por factura y nota de pedido
+router.get('/sumaItems/:factura/:nota_pedido', (req, res)=>{
+
+    // res.send('<h1>Funciona</h1>');
+    const factura = req.params.factura;
+    const nota_pedido = req.params.nota_pedido;
+    // console.log('id-->'+rut);
+
+        conn.selectSumaItemFactura(factura,nota_pedido).then((row)=>{
+
+            // console.log(row);
+            res.send(row);
+        });
+    
+})
+
 
 // buscar detalle folio
 router.get('/detalleFolio/:id', (req, res)=>{
