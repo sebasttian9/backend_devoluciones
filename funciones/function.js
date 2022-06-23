@@ -34,6 +34,18 @@ class devoluciones {
             // });
     }
 
+
+    selectSumaItemFactura(factura, nota_pedido){
+
+        return this.knex.from("tbl_ventas_devoluciones").sum('unidad as suma').where({factura:`${factura}`, nota_pedido:`${nota_pedido}`});
+            // .then((row)=>{
+            //     return row;
+            // }).catch((err) => { console.log(err); throw err})
+            // .finally(()=>{
+            //     this.knex.destroy();
+            // });
+    }
+
     selectProductosLocal(){
 
         return this.knex.from("productos").select("*").limit(10).offset(1);
