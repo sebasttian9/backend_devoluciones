@@ -152,24 +152,69 @@ router.get('/detalleFolio/:id', (req, res)=>{
 })
 
 // buscar factura por id
-router.get('/factura/:id/:rut', (req, res)=>{
+router.get('/factura/:id/:rut/:emp', (req, res)=>{
 
             // res.send('<h1>Funciona</h1>');
     const id = req.params.id;
     const rut = req.params.rut;
+    const empresa = req.params.emp;
+
+    if(empresa==2){ // gabtec
     // console.log('id-->'+rut);
-    if(!id){
+            if(!id){
 
-        res.send({'error':'id es requerido'});
+                res.send({'error':'id es requerido'});
 
-    }else{
-        conn.selectInfoFactura(id,rut).then((row)=>{
+            }else{
+                conn.selectInfoFactura(id,rut).then((row)=>{
 
-                // console.log(row);
-            res.send(row);
-        });
-    }
-})
+                        // console.log(row);
+                    res.send(row);
+                });
+            }
+
+    }else if(empresa==1){ // automarco
+
+        if(!id){
+
+            res.send({'error':'id es requerido'});
+
+        }else{
+            conn.selectInfoFacturaAutomarco(id,rut).then((row)=>{
+
+                    // console.log(row);
+                res.send(row);
+            });
+        }        
+    }else if(empresa==3){ // autotec
+
+        if(!id){
+
+            res.send({'error':'id es requerido'});
+
+        }else{
+            conn.selectInfoFacturaAutotec(id,rut).then((row)=>{
+
+                    // console.log(row);
+                res.send(row);
+            });
+        }        
+    }else if(empresa==4){ // hd
+
+        if(!id){
+
+            res.send({'error':'id es requerido'});
+
+        }else{
+            conn.selectInfoFacturaHD(id,rut).then((row)=>{
+
+                    // console.log(row);
+                res.send(row);
+            });
+        }        
+    }     
+
+});
 
 // REGRESA INFORMACION DEL CLIENTE QUE INGRESO AL SISTEMA
 router.get('/client/:id?', (req, res)=>{
@@ -193,24 +238,71 @@ router.get('/client/:id?', (req, res)=>{
 
 
 // Busqueda por Codigo interno o codigo de fabrica
-router.get('/producto/:id/:rut', (req, res)=>{
+router.get('/producto/:id/:rut/:emp', (req, res)=>{
 
     // res.send('<h1>Funciona</h1>');
     const id = req.params.id;
     const rut = req.params.rut;
+    const empresa = req.params.emp;
+
+
+
+    if(empresa==2){ // gabtec
     // console.log('id-->'+id);
-    if(!id){
+            if(!id){
 
-        res.send({'error':'id es requerido'});
+                res.send({'error':'id es requerido'});
 
-    }else{
-        conn.selectProdEnFactura(id,rut).then((row)=>{
+            }else{
+                conn.selectProdEnFactura(id,rut).then((row)=>{
 
-            res.send(row);
-        });
+                    res.send(row);
+                });
+            }
+
+    }else if(empresa==1){ // automarco
+
+        if(!id){
+
+            res.send({'error':'id es requerido'});
+
+        }else{
+            conn.selectProdEnFacturaAutomarco(id,rut).then((row)=>{
+
+                res.send(row);
+            });
+        }
+    }else if(empresa==3){ // AUTOTEC
+
+        if(!id){
+
+            res.send({'error':'id es requerido'});
+
+        }else{
+            conn.selectProdEnFacturaAutotec(id,rut).then((row)=>{
+
+                res.send(row);
+            });
+        }
+
+
+    }else if(empresa==4){ // HD
+
+        if(!id){
+
+            res.send({'error':'id es requerido'});
+
+        }else{
+            conn.selectProdEnFacturaHD(id,rut).then((row)=>{
+
+                res.send(row);
+            });
+        }
+
+
     }
 
-})
+});
 
 
 

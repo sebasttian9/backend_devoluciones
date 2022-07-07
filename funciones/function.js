@@ -138,13 +138,33 @@ class devoluciones {
         
     }
 
-    // FACTURAS 
+    // FACTURAS GABTEC
     selectInfoFactura(factura, rut_cliente){
 
         return this.knex.from("tbl_ventas_devoluciones").select("*").where({factura:`${factura}`, cliente_rut:`${rut_cliente}`});
 
     } 
 
+    // FACTURAS AUTOMARCO
+    selectInfoFacturaAutomarco(factura, rut_cliente){
+
+        return this.knex.from("automarc_automarco.tbl_ventas_devoluciones").select("*").where({factura:`${factura}`, cliente_rut:`${rut_cliente}`});
+
+    } 
+
+    // FACTURAS AUTOTEC
+    selectInfoFacturaAutotec(factura, rut_cliente){
+
+        return this.knex.from("autotec_ecom.tbl_ventas_devoluciones").select("*").where({factura:`${factura}`, cliente_rut:`${rut_cliente}`});
+
+    }     
+
+    // FACTURAS HD
+    selectInfoFacturaHD(factura, rut_cliente){
+
+        return this.knex.from("autohd_automarcohd.tbl_ventas_devoluciones").select("*").where({factura:`${factura}`, cliente_rut:`${rut_cliente}`});
+
+    }     
 
         // INSERT CABECERA 
     insertCabecera(objeto){
@@ -197,6 +217,43 @@ class devoluciones {
         //.where('prod_id','like',`%${codigo}%`).orWhere('cod_prod','like',`%${codigo}%`);
         
     } 
+
+    selectProdEnFacturaHD(codigo,rut){
+
+        
+        // const toStringQuery = this.knex.from("tbl_ventas_devoluciones").select("*")
+        // .whereRaw('(prod_id like %?% or cod_prov like %?%) and cliente_rut = ?', [`%${codigo}%`,`%${codigo}%`,rut]).toString();
+        // console.log(toStringQuery);
+        return this.knex.from("autohd_automarcohd.tbl_ventas_devoluciones").select("*")
+        .whereRaw('(prod_id like ? or cod_prov like ?) and cliente_rut = ?', [`%${codigo}%`,`%${codigo}%`,rut])
+        //.where('prod_id','like',`%${codigo}%`).orWhere('cod_prod','like',`%${codigo}%`);
+        
+    } 
+
+    selectProdEnFacturaAutotec(codigo,rut){
+
+        
+        // const toStringQuery = this.knex.from("tbl_ventas_devoluciones").select("*")
+        // .whereRaw('(prod_id like %?% or cod_prov like %?%) and cliente_rut = ?', [`%${codigo}%`,`%${codigo}%`,rut]).toString();
+        // console.log(toStringQuery);
+        return this.knex.from("autotec_ecom.tbl_ventas_devoluciones").select("*")
+        .whereRaw('(prod_id like ? or cod_prov like ?) and cliente_rut = ?', [`%${codigo}%`,`%${codigo}%`,rut])
+        //.where('prod_id','like',`%${codigo}%`).orWhere('cod_prod','like',`%${codigo}%`);
+        
+    } 
+
+
+    selectProdEnFacturaAutomarco(codigo,rut){
+
+        
+        // const toStringQuery = this.knex.from("tbl_ventas_devoluciones").select("*")
+        // .whereRaw('(prod_id like %?% or cod_prov like %?%) and cliente_rut = ?', [`%${codigo}%`,`%${codigo}%`,rut]).toString();
+        // console.log(toStringQuery);
+        return this.knex.from("automarc_automarco.tbl_ventas_devoluciones").select("*")
+        .whereRaw('(prod_id like ? or cod_prov like ?) and cliente_rut = ?', [`%${codigo}%`,`%${codigo}%`,rut])
+        //.where('prod_id','like',`%${codigo}%`).orWhere('cod_prod','like',`%${codigo}%`);
+        
+    }
 
 }
 
