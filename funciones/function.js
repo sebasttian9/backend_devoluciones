@@ -184,9 +184,9 @@ class devoluciones {
     } 
 
             // INSERT CABECERA 
-    actualizarFolioWeb(id_folio, folio_web){
+    actualizarFolioWeb(id_folio, folio_web, folio_padre,proceso_wms){
 
-                const toString = this.knex("dev_tbl_folio").update({id_numero_seguimiento: `${folio_web}`, proceso_wms : 0}).where('id_folio', id_folio);    
+                const toString = this.knex("dev_tbl_folio").update({id_numero_seguimiento: `${folio_web}`, proceso_wms : proceso_wms, num_seg_padre: `${folio_padre}`}).where('id_folio', id_folio);    
                 return toString; 
     } 
 
