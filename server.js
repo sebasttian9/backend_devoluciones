@@ -322,7 +322,8 @@ router.post('/save', (req, res)=>{
         rut: req.body.txtRut,
         fecha_ingreso: req.body.txtFecha,
         solicitud: req.body.SelectSolicitud,
-        observacion: req.body.txtObservacion
+        observacion: req.body.txtObservacion,
+        nameTransporte: req.body.txtNombreTransporte
 
    }
 

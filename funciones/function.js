@@ -180,7 +180,8 @@ class devoluciones {
                                         Fecha_recepcion: objeto.fecha_ingreso,
                                         solicitud_cliente:objeto.solicitud,
                                         resumen_motivo_dev: objeto.observacion,
-                                        id_num_folio: 999});    
+                                        id_num_folio: 999,
+                                        nombre_transporte: objeto.nameTransporte});    
     } 
 
             // INSERT CABECERA 
