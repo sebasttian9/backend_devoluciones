@@ -358,7 +358,7 @@ router.post('/updateSegFolio', (req, res)=>{
         const seguimiento =  req.body.seguimiento;
         const id_folio =  req.body.folio;
         const seguimiento_padre =  req.body.seguimiento_padre!='' ?  req.body.seguimiento_padre : null;
-        const proceso_wms = req.body.fin ?  4 : 0;
+        const proceso_wms = req.body.seguimiento_padre!='' ?  4 : 0;
 
 
     conn.actualizarFolioWeb(id_folio,seguimiento,seguimiento_padre,proceso_wms).then(resp=>{
