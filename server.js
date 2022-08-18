@@ -349,7 +349,6 @@ router.post('/save', (req, res)=>{
 })
 
 
-// Insert Cabecera devolucion
 router.post('/updateSegFolio', (req, res)=>{
 
     // res.send('<h1>Funciona</h1>');
@@ -359,10 +358,34 @@ router.post('/updateSegFolio', (req, res)=>{
         const seguimiento =  req.body.seguimiento;
         const id_folio =  req.body.folio;
         const seguimiento_padre =  req.body.seguimiento_padre!='' ?  req.body.seguimiento_padre : null;
-        const proceso_wms = req.body.seguimiento_padre!='' ?  4 : 0;
+        const proceso_wms = req.body.fin ?  4 : 0;
 
 
     conn.actualizarFolioWeb(id_folio,seguimiento,seguimiento_padre,proceso_wms).then(resp=>{
+
+            res.json(resp);
+
+    }).catch(error =>{
+
+            res.json({error : 'Error al actualizar folio'+error});
+    });
+
+})
+
+
+router.post('/updateFoliosVinculados', (req, res)=>{
+
+    // res.send('<h1>Funciona</h1>');
+    // console.log('id-->'+id);
+
+
+        const seguimiento =  req.body.seguimiento_padre;
+        // const id_folio =  req.body.folio;
+        // const seguimiento_padre =  req.body.seguimiento_padre!='' ?  req.body.seguimiento_padre : null;
+        // const proceso_wms = req.body.fin ?  4 : 0;
+
+
+    conn.actualizarFolioVinculado(seguimiento).then(resp=>{
 
             res.json(resp);
 

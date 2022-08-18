@@ -191,6 +191,12 @@ class devoluciones {
                 return toString; 
     } 
 
+    actualizarFolioVinculado(seguimiento){
+
+        const toString = this.knex("dev_tbl_folio").update({proceso_wms : 0}).where('num_seg_padre', seguimiento);    
+        return toString; 
+    }     
+
     actualizarFechaNota(nota_pedido,fecha_factura,id_folio, factura){
         const toString = this.knex("dev_tbl_folio").update({fecha_factura: `${fecha_factura}`,nota_pedido:`${nota_pedido}`, Factura_boleta:`${factura}`  }).where('id_folio', id_folio);    
         return toString; 
