@@ -79,7 +79,7 @@ class devoluciones {
     selectFolioCliente(id){
 
             // return this.knex.from("dev_tbl_folio").select("id_folio", "id_num_folio", "Factura_boleta", "Motivo_devolucion", "estado_folio", "Fecha_recepcion", "rut_cliente", "empresa_id").where('rut_cliente',id);
-            return this.knex.from("dev_tbl_folio").select("*").leftJoin('dev_tbl_motivo_devolucion', 'dev_tbl_folio.Motivo_devolucion', 'dev_tbl_motivo_devolucion.id_motivo').leftJoin('dev_tbl_estado_folio', 'dev_tbl_estado_folio.id', 'dev_tbl_folio.estado_folio').where('rut_cliente',id).andWhere('proceso_wms','<',2);
+            return this.knex.from("dev_tbl_folio").select("*").leftJoin('dev_tbl_motivo_devolucion', 'dev_tbl_folio.Motivo_devolucion', 'dev_tbl_motivo_devolucion.id_motivo').leftJoin('dev_tbl_estado_folio', 'dev_tbl_estado_folio.id', 'dev_tbl_folio.estado_folio').where('rut_cliente',id).andWhere('proceso_wms','<',2).orderBy('id_folio', 'desc');
     
     } 
 
