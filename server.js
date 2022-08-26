@@ -115,6 +115,19 @@ router.get('/foliosCliente/:rut', (req, res)=>{
     }
 })
 
+
+// retorna todos los folios
+router.get('/foliosClientes', (req, res)=>{
+
+
+        conn.RetornaTodosFolios(rut).then((row)=>{
+            // console.log(row);
+            res.send(row);
+        });
+    
+})
+
+
 // obtener suma de items por factura y nota de pedido
 router.get('/sumaItems/:factura/:nota_pedido', (req, res)=>{
 
