@@ -120,7 +120,7 @@ router.get('/foliosCliente/:rut', (req, res)=>{
 router.get('/foliosClientes', (req, res)=>{
 
 
-        conn.RetornaTodosFolios(rut).then((row)=>{
+        conn.RetornaTodosFolios().then((row)=>{
             // console.log(row);
             res.send(row);
         });
