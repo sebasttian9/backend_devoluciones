@@ -149,11 +149,11 @@ class devoluciones {
     }
 
     // FACTURAS GABTEC
-    selectInfoFactura(factura, rut_cliente){
+    // selectInfoFactura(factura, rut_cliente){
 
-        return this.knex.from("tbl_ventas_devoluciones").select("*").where({factura:`${factura}`, cliente_rut:`${rut_cliente}`});
+    //     return this.knex.from("tbl_ventas_devoluciones").select("*, valorNetoFactura(cliente_rut,factura) as neto").where({factura:`${factura}`, cliente_rut:`${rut_cliente}`});
 
-    } 
+    // } 
 
     // FACTURAS AUTOMARCO
     selectInfoFacturaAutomarco(factura, rut_cliente){
@@ -174,7 +174,14 @@ class devoluciones {
 
         return this.knex.from("autohd_automarcohd.tbl_ventas_devoluciones").select("*").where({factura:`${factura}`, cliente_rut:`${rut_cliente}`});
 
-    }     
+    }
+    
+    // // FACTURAS HD
+    // selectNetoFactura(factura, rut_cliente){
+
+    //     return this.knex.from("autohd_automarcohd.tbl_ventas_devoluciones").select("*").where({factura:`${factura}`, cliente_rut:`${rut_cliente}`});
+
+    // }    
 
         // INSERT CABECERA 
     insertCabecera(objeto){
